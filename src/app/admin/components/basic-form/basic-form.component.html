@@ -47,10 +47,50 @@
     </select> 
 </p>
 <p>
-    Tagas: {{tagField.value}}
+    Tags: {{tagField.value}}
      <select [formControl]="tagField" multiple>
         <option value="tag-1" >tag 1</option>
         <option value="tag-2">tag 2</option>
         <option value="tag-3">tag 3</option>
     </select> 
+</p>
+
+<p>
+    Number: {{agreefield.value}}
+    <input type="checkbox" [formControl]="agreefield">    
+</p>
+
+<p>
+    Gender: {{genderField.value}}
+    <!-- <mat-radio-button value="value">Option</mat-radio-button> -->
+    <label for="">
+        <input  name="gender" type="radio" value="m" [formControl]="genderField">    
+        Male
+    </label>
+    <label for="">
+    <input name="gender" type="radio" value="f" [formControl]="genderField">    
+    Female  
+    </label>
+
+    <label for="">
+    <input name="gender"type="radio" value="o" [formControl]="genderField">    
+    Other  
+    </label>
+</p>
+
+<p>
+    zone: {{zoneField.value}}
+    <!-- <mat-radio-button value="value">Option</mat-radio-button> -->
+    <label for="">
+        <input name="zone" type="radio" value="zone 1" [formControl]="zoneField">    
+        Zone 1
+    </label>
+    <label for="">
+        <input name="zone" type="radio" value="zone 2" [formControl]="zoneField">    
+        Zone 2 
+    </label>
+    <label for="">
+        <input name="zone"type="radio" value="zone 3" [formControl]="zoneField">    
+        Zone 3
+    </label>
 </p>
