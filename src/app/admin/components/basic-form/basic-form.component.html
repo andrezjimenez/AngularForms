@@ -1,4 +1,5 @@
-<p>basic-form works!ssss</p>
+
+<p>basic-form works!ssss
 <input type="text" [formControl]="nameField">
 {{nameField.value}}
 <!-- <code>
@@ -9,3 +10,31 @@
 
  -->
  <button (click)="getNameValue()" >consolog</button>
+</p>
+
+
+<p>
+    Email: {{emailField.value}}
+    <input type="email" [formControl]="emailField">
+</p>
+
+<p>
+    tel: {{phoneField.value}}
+    <input type="tel" [formControl]="phoneField">
+</p>
+<p>
+    Phone: {{colorField.value}}
+    <input type="color" [formControl]="colorField">
+</p>
+<p>
+    Date: {{dateField.value}}
+    <input type="date" [formControl]="dateField">
+</p>
+<p>
+    Number: {{numberField.value}}
+    <input type="number" [formControl]="numberField">
+</p>
+<p>
+    Number: {{numberField.value}}
+    <input type="" [formControl]="numberField">
+</p>
