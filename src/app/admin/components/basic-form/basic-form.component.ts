@@ -13,6 +13,13 @@ export class BasicFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.nameField.valueChanges
+    .subscribe(value => {
+      console.log(value);
+    })
   }
 
+  getNameValue (){
+    console.log(this.nameField.value);
+  }
 }
