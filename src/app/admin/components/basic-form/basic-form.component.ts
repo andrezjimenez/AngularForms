@@ -15,6 +15,8 @@ export class BasicFormComponent implements OnInit {
   colorField = new FormControl('');
   dateField = new FormControl('');
   numberField = new FormControl('');
+  categoryField = new FormControl('category-1');
+  tagField = new FormControl('');
 
   constructor() { }
 
@@ -28,4 +30,7 @@ export class BasicFormComponent implements OnInit {
   getNameValue (){
     console.log(this.nameField.value);
   }
+
+  
+
 }
