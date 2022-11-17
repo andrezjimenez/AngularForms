@@ -24,17 +24,46 @@
 
     <button (click)="getNameValue()" [disabled]="nameField.invalid" >consolog</button>
 
+    <div class="message" [class.active]="nameField.touched && nameField.invalid">
+        <p>
+            <strong *ngIf="nameField.hasError('required')">
+                Este campo es requerido
+            </strong>
+        </p>
+        <p>
+            <strong *ngIf=" nameField.hasError('pattern')">
+                Caracteres invalidos
+            </strong>
+        </p>
+    </div>
+
     <p>
         Email: {{emailField.value}}
         <input type="email"   formControlName="email">
     </p>
+
+    <div class="message" [class.active]="emailField.touched && emailField.invalid">
+        <p>
+            <strong *ngIf="emailField.hasError('required')">
+                Este campo es requerido
+            </strong>
+        </p>
+        <p>
+            <strong *ngIf=" emailField.hasError('email')">
+                email no valido
+            </strong>
+        </p>
+    </div>
+
+
+
     <p>
         tel: {{phoneField.value}}
         <input type="tel" formControlName="Phone">
     </p>
     <p>
         Phone: {{colorField.value}}
-        <input type="color" formControlName="color">
+        <input type="color" formControlName="Phone">
     </p>
     <p>
         Date: {{dateField.value}}
@@ -102,7 +131,9 @@
         </label>
     </p>
     <p>
-        <button type="submit">asdasda
+        <button 
+        
+         type="submit">asdasda
 
         </button>
     </p>

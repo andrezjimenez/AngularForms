@@ -29,7 +29,9 @@ export class BasicFormComponent implements OnInit {
 
   constructor(
     private formbuilder: FormBuilder
-  ) { }
+  ) { 
+    this.buildForm();
+  }
 
   get nameField(){
     return this.form.get('name');
@@ -78,23 +80,28 @@ export class BasicFormComponent implements OnInit {
 
   private buildForm () {
       this.form = this.formbuilder.group ({
-      name: new FormControl('',[Validators.required, Validators.maxLength(2)]),
-      email: new FormControl(''),
-      phone:new FormControl(''),
-      color:new FormControl(''),
-      date:new FormControl(''),
-      number:new FormControl(''),
-      category: new FormControl('category-1'),
-      tag: new FormControl(''),
-      agree:new FormControl (false),
-      gender:new FormControl(''),
-      zone:new FormControl(''),
-      preferences:new FormControl(''),
+      name: ['' , [Validators.required, Validators.maxLength(2), Validators.pattern(/^[a-zA-Z]+$/)]],
+      email:  ['', [Validators.required, Validators.email] ],
+      phone:  ['',Validators.required],
+      color:  [''],
+      date:   [''],
+      number: [''],
+      category: [''],
+      tag:    [''],
+      agree:  [false, Validators.requiredTrue],
+      gender: [''],
+      zone:   [''],
+      preferences:[''],
     } );
   }
 
   save(event){
-    console.log(this.form.value)
+    if (this.form.valid){
+      console.log(this.form.value)
+    }else{
+      this.form.markAllAsTouched();
+    }
+    
   }
   
 
