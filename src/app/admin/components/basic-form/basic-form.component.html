@@ -1,4 +1,31 @@
 
+
+
+
+
+
+
+
+<form [formGroup]="form">
+    <input 
+        [class.is-valid]="name.touched && nameField.valid"
+        [class.is-invalid]="nameField.touched && nameField.invalid"
+        type="text"
+        [formControlName]="name">
+    <!-- {{nameField.valid}} {{nameField.touched}} -->
+    <!-- <code>
+        <pre>{{nameField | json}}</pre>
+    </code>-->
+    <img *ngIf="nameField.valid===true else other_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/20px-Yes_Check_Circle.svg.png" alt=""> 
+    <ng-template #other_image>
+        <img width="18px" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png" alt=""> 
+    </ng-template>
+
+    <button (click)="getNameValue()" [disabled]="nameField.invalid" >consolog</button>
+</form>
+
+
+
 <p>basic-form works!ssss
 <input 
     [class.is-valid]="nameField.touched && nameField.valid"
