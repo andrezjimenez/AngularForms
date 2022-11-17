@@ -7,35 +7,62 @@
 
 
 <form [formGroup]="form" (ngSubmit)="save($event)">
-    <p> name: {{ form}} {{nameField.valid}}</p>
-    <input 
-        [class.is-valid]="nameField.touched && nameField.valid"
-        [class.is-invalid]="nameField.touched && nameField.invalid"
-        type="text"
-        formControlName="name"/>
-    <!-- {{nameField.valid}} {{nameField.touched}} -->
-    <!-- <code>
-        <pre>{{nameField | json}}</pre>
-    </code>-->
-    <img *ngIf="nameField.valid===true else other_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/20px-Yes_Check_Circle.svg.png" alt=""> 
-    <ng-template #other_image>
-        <img width="18px" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png" alt=""> 
-    </ng-template>
 
-    <button (click)="getNameValue()" [disabled]="nameField.invalid" >consolog</button>
+    <div formGroupName="fullName">
+        <p> name: {{nameField.valid}}</p>
+        <input 
+            [class.is-valid]="nameField.touched && nameField.valid"
+            [class.is-invalid]="nameField.touched && nameField.invalid"
+            type="text"
+            formControlName="name"/>
+        <!-- {{nameField.valid}} {{nameField.touched}} -->
+        <!-- <code>
+            <pre>{{nameField | json}}</pre>
+        </code>-->
+        <img *ngIf="nameField.valid===true else other_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Yes_Check_Circle.svg/20px-Yes_Check_Circle.svg.png" alt=""> 
+        <ng-template #other_image>
+            <img width="18px" src="https://cdn.pixabay.com/photo/2012/04/12/20/12/x-30465_960_720.png" alt=""> 
+        </ng-template>
+    
+        <button (click)="getNameValue()" [disabled]="nameField.invalid" >consolog</button>
+    
+        <div class="message" [class.active]="nameField.touched && nameField.invalid">
+            <p>
+                <strong *ngIf="nameField.hasError('required')">
+                    Este campo es requerido
+                </strong>
+            </p>
+            <p>
+                <strong *ngIf=" nameField.hasError('pattern')">
+                    Caracteres invalidos
+                </strong>
+            </p>
+        </div>
 
-    <div class="message" [class.active]="nameField.touched && nameField.invalid">
-        <p>
-            <strong *ngIf="nameField.hasError('required')">
-                Este campo es requerido
-            </strong>
-        </p>
-        <p>
-            <strong *ngIf=" nameField.hasError('pattern')">
-                Caracteres invalidos
-            </strong>
+        <input 
+            [class.is-valid]="lastField.touched && lastField.valid"
+            [class.is-invalid]="lastField.touched && lastField.invalid"
+            type="text"
+            formControlName="last"/>
+        <div class="message" [class.active]="lastField.touched && lastField.invalid">
+            <p>
+                <strong *ngIf="lastField.hasError('required')">
+                    Este campo es requerido
+                </strong>
+            </p>
+            <p>
+                <strong *ngIf=" lastField.hasError('pattern')">
+                    Caracteres invalidos
+                </strong>
+            </p>
+        </div>
+
+        <p *ngIf="nameField.valid && lastField.valid">
+            {{nameField.value}} {{lastField.value}} 
         </p>
     </div>
+
+    
 
     <p>
         Email: {{emailField.value}}

@@ -34,7 +34,10 @@ export class BasicFormComponent implements OnInit {
   }
 
   get nameField(){
-    return this.form.get('name');
+    return this.form.get('fullName').get('name');
+  }
+  get lastField(){
+    return this.form.get('fullName').get('last');
   }
   get emailField(){
     return this.form.get('email');
@@ -80,7 +83,10 @@ export class BasicFormComponent implements OnInit {
 
   private buildForm () {
       this.form = this.formbuilder.group ({
-      name: ['' , [Validators.required, Validators.maxLength(2), Validators.pattern(/^[a-zA-Z]+$/)]],
+      fullName:  this.formbuilder.group({
+        name: ['' , [Validators.required, Validators.maxLength(2), Validators.pattern(/^[a-zA-Z]+$/)]],
+        last: ['' , [Validators.required, Validators.maxLength(15), Validators.pattern(/^[a-zA-Z]+$/)]]
+      }),
       email:  ['', [Validators.required, Validators.email] ],
       phone:  ['',Validators.required],
       color:  [''],
