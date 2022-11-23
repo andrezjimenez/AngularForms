@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -25,6 +27,8 @@ import { MatStepperModule } from '@angular/material/stepper';
   imports: [
     CommonModule,
     MatButtonModule,
+    MatButtonToggleModule,
+    MatChipsModule,
     MatToolbarModule,
     MatIconModule,
     MatBadgeModule,
@@ -45,7 +49,9 @@ import { MatStepperModule } from '@angular/material/stepper';
   ],
   exports: [
     MatButtonModule,
+    MatButtonToggleModule,
     MatToolbarModule,
+    MatChipsModule,
     MatIconModule,
     MatBadgeModule,
     MatCardModule,
