@@ -9,7 +9,7 @@ import { Category } from './../models/category.model';
 export class CategoriesService {
 
   constructor(
-    private http:  HttpClient;
+    private http:  HttpClient,
   ) { }
 
     getAllCategories() {
@@ -17,7 +17,8 @@ export class CategoriesService {
     }
 
     createCategory (data: Partial<Category>) {
-      return this.http.post<Category>(`${environment}/categories/`,data);
+      console.log(environment);
+      return this.http.post<Category>(`https://store.nicobytes.site/api/categories/`,data);
     }
 
     updateCategory (id: string ,data: Partial<Category>) {

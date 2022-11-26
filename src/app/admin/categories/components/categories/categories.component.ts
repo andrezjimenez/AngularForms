@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, Validators,FormBuilder, FormGroup  } from '@angular/forms';
+import { CategoriesService } from './../../../../core/services/categories.service';
 
 @Component({
   selector: 'app-categories',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private categoriesService: CategoriesService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
