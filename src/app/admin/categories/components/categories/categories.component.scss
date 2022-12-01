@@ -1,0 +1,33 @@
+.title-category{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.button-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.button-title--button{
+   margin: 12px;
+   padding: 12px;
+}
+.table-category {
+    margin: 12px;
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 50% 50% ;
+    grid-template-rows: 50% 50% ;
+  }
+.card-category{
+    width: 250px;
+    height: 250px;
+}
+
+.category-img{
+    margin: 0 auto;
+    align-items: center;
+}
